@@ -1,9 +1,13 @@
 package com.example.loginsample;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(edtUsername.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")) {
+                    Toast.makeText(getApplicationContext(), "Bienvenido a mi app", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Bienvenido a mi app");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error en la autenticacion", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Error en la autenticacion");
+                }
 
             }
         });
